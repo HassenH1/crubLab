@@ -8,15 +8,13 @@ const bodyParser = require("body-parser")
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(methodOverride('_method'))
 
+//index page
 app.get('/cars', (req, res) => {
   res.render("index.ejs", {
     cars: cars
   })
 })
-//add new cars---------not finished yet
-// app.get('/cars/new', (req,res) => {
-//   res.render('new.ejs')
-// })
+
 //delete cars
 app.delete("/cars/:index", (req,res) => {
   cars.splice(req.params.index,1)
@@ -30,6 +28,7 @@ app.get('/cars/:index/edit', (req, res) => {
   })
 })
 
+//for editing current cars
 app.put('/cars/:index', (req,res) => {
   if(req.body.gas === 'on'){
     req.body.gas = true
@@ -38,6 +37,13 @@ app.put('/cars/:index', (req,res) => {
   }
   cars[req.params.index] = req.body
   res.redirect('/cars')
+})
+
+//showing each object individually
+app.get("/cars/:index", (req,res) => {
+  res.render('show.ejs', {
+    cars: cars[req.params.index]
+  })
 })
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))

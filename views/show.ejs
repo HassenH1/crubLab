@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <h1>Cars show page</h1>
+        The <%=cars.name; %> is  <%=cars.color; %>.
+        <% if(cars.gas === true){ %>
+            It is ready to GO
+        <% } else { %>
+            It is not ready to go
+        <% } %>
+
+        <img src="<%=cars.img%>" >
+        <img src="<%=cars.img2%>" >
+    </body>
+</html>

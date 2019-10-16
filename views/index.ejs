@@ -11,7 +11,7 @@
     <ul>
         <% for(let i = 0; i < cars.length; i++){ %>
         <li>
-            The <a href="/cars/<%=cars[i]._id%>"><%=cars[i].name; %></a>.
+            The <a href="/cars/<%=i%>"><%=cars[i].name; %></a>.
         </li>
 
         <form action="/cars/<%=i;%>?_method=DELETE" method="POST">
