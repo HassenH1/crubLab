@@ -11,16 +11,11 @@
     <ul>
         <% for(let i = 0; i < cars.length; i++){ %>
         <li>
-            The <a href="/car/<%=cars[i]._id%>"><%=cars[i].name; %></a> is <%=cars[i].color; %>.
-            <% if(cars[i].gas === true){ %>
-            It is ready to GO!
-            <% } else { %>
-            It is not ready to go smh
-            <% } %>
+            The <a href="/cars/<%=cars[i]._id%>"><%=cars[i].name; %></a>.
         </li>
 
-        <form action="/cars/<%=i%>?_method=DELETE" method="POST">
-            <button type='Submit'>Delete</button>
+        <form action="/cars/<%=i;%>?_method=DELETE" method="POST">
+            <button type='submit'>Delete</button>
         </form>
         <a href="/cars/<%=i%>/edit">Edit</a>
         <% } %>
