@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <!-- <link rel="stylesheet" href="/css/app.css"> -->
+    </head>
+    <body>
+        <h1>Cars Edit Page</h1>
+        <form action="/cars/<%=index%>?_method=PUT" method="POST">
+          <!--  NOTE: the form is pre-populated with values for the server-->
+          Name: <input type="text" name="name" value="<%=cars.name%>"/><br/>
+          Color: <input type="text" name="color" value="<%=cars.color%>"/><br/>
+          Gas:
+          <input type="checkbox" name="gas"
+              <% if(cars.gas === true){ %>
+              checked
+              <% } %>
+          />
+          <br/>
+          <input type="submit" name="" value="Submit Changes"/>
+      </form>
+    </body>
+</html>

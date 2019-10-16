@@ -14,13 +14,30 @@ app.get('/cars', (req, res) => {
   })
 })
 //add new cars---------not finished yet
-// app.get('/new', (req,res) => {
+// app.get('/cars/new', (req,res) => {
 //   res.render('new.ejs')
 // })
 //delete cars
 app.delete("/cars/:index", (req,res) => {
   cars.splice(req.params.index,1)
   res.redirect("/cars")
+})
+//edit page
+app.get('/cars/:index/edit', (req, res) => {
+  res.render('edit.ejs', {
+    cars: cars[req.params.index],
+    index: req.params.index,
+  })
+})
+
+app.put('/cars/:index', (req,res) => {
+  if(req.body.gas === 'on'){
+    req.body.gas = true
+  } else {
+    req.body.gas = false;
+  }
+  cars[req.params.index] = req.body
+  res.redirect('/cars')
 })
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
